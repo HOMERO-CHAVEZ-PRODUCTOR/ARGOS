@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADUACIÓN | ARGOS 2026</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Paleta Conceptual: Dorado y Lino/Ivory */
+            --accent-gold: #CFA249; 
+            --text-ivory: #FEFFE3; 
+            --bg-black: #050505;
+            --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- ARQUITECTURA BASE --- */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Archivo', sans-serif;
+            color: var(--text-ivory);
+            line-height: 1.8; 
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            background-color: var(--bg-black); 
+        }
+
+        /* --- FONDO DE IMAGEN (2.png) LIMPIO Y ELEGANTE --- */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background-image: url('2.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        /* Capa oscurecedora para asegurar lectura limpia sin saturar */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: -1;
+        }
+
+        /* --- TIPOGRAFÍA ARCHIVO --- */
+        h1, h2, h3, h4, strong, .timeline-row span:first-child {
+            font-family: 'Archivo', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--text-ivory);
+        }
+
+        /* --- ANIMACIONES GENERALES --- */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal-node { 
+            opacity: 0; 
+            animation: reveal 1.2s ease forwards; 
+        }
+
+        /* --- PORTADA --- */
+        header {
+            position: relative;
+            min-height: 100vh;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            padding: 40px;
+        }
+
+        header div.reveal-node { 
+            position: relative; 
+            z-index: 10; 
+            max-width: 900px; 
+        }
+
+        header h1 { 
+            font-size: clamp(3rem, 10vw, 5.5rem); 
+            margin-bottom: 5px; 
+            letter-spacing: 8px;
+        }
+
+        header p { 
+            font-size: 1.2rem; 
+            letter-spacing: 12px; 
+            color: var(--accent-gold); 
+            font-weight: 300; 
+            margin-top: 25px; 
+        }
+
+        header hr { 
+            width: 80px; 
+            height: 2px; 
+            border: none; 
+            background: var(--accent-gold); 
+            margin: 35px auto; 
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        main {
+            position: relative;
+            padding: 100px 20px;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .intro-block { 
+            max-width: 800px; 
+            margin: 0 auto 80px; 
+            font-size: 1.3rem; 
+            font-weight: 300; 
+            line-height: 2.2; 
+        }
+        
+        .date-display {
+            display: inline-flex;
+            gap: 40px;
+            font-size: clamp(2.5rem, 11vw, 5rem);
+            padding: 30px 70px;
+            margin-bottom: 110px;
+            border-top: 1px solid rgba(207, 162, 73, 0.4); 
+            border-bottom: 1px solid rgba(207, 162, 73, 0.4);
+            font-weight: 300;
+        }
+
+        /* --- UBICACIÓN --- */
+        .location-box {
+            max-width: 850px;
+            margin: 0 auto 130px;
+        }
+
+        .location-box p { 
+            font-size: 1.2rem; 
+            margin-bottom: 45px; 
+            font-weight: 300;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 22px 70px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold); 
+            background: transparent; 
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transition: var(--transition-smooth);
+            font-weight: 400;
+        }
+
+        .btn-gold:hover { 
+            background: var(--accent-gold); 
+            color: var(--bg-black); 
+        }
+
+        /* --- ITINERARIO UNIFORME --- */
+        .timeline-container {
+            max-width: 700px;
+            margin: 140px auto;
+            padding: 0 20px;
+        }
+
+        .timeline-container h3 { 
+            font-size: 2.5rem; 
+            margin-bottom: 80px; 
+            text-align: center; 
+            color: var(--accent-gold);
+        }
+
+        .timeline-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(254, 255, 227, 0.15);
+        }
+
+        .timeline-row span:first-child { 
+            font-weight: 600; 
+            min-width: 120px; 
+            text-align: left; 
+            color: var(--accent-gold);
+        }
+
+        .timeline-row span:last-child { 
+            text-align: right; 
+            font-weight: 300; 
+            font-size: 1.1rem; 
+            color: var(--text-ivory); 
+        }
+
+        /* --- SECCIÓN DE MENÚ (DISEÑO LIMPIO) --- */
+        .menu-section {
+            max-width: 800px;
+            margin: 140px auto 50px;
+            padding: 0 20px;
+        }
+
+        .menu-section h3 { 
+            font-size: 2.5rem; 
+            margin-bottom: 80px; 
+            text-align: center; 
+            color: var(--accent-gold);
+        }
+
+        .menu-block {
+            margin-bottom: 60px;
+            background: rgba(0, 0, 0, 0.4); 
+            border: 1px solid rgba(207, 162, 73, 0.2);
+            padding: 60px 40px;
+            backdrop-filter: blur(12px);
+        }
+
+        .menu-block h4 {
+            font-size: 1.4rem;
+            color: var(--text-ivory);
+            margin-bottom: 45px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 1px solid rgba(207, 162, 73, 0.3);
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .menu-course {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .menu-course strong {
+            display: block;
+            color: var(--accent-gold);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .menu-course p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-ivory);
+            opacity: 0.9;
+        }
+        
+        .menu-list {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+        
+        .menu-list li {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-ivory);
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        /* --- RECOMENDACIONES --- */
+        .recs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .rec-item {
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.4); 
+            border: 1px solid rgba(207, 162, 73, 0.2);
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
+
+        .rec-item strong { 
+            display: block; 
+            margin-bottom: 15px; 
+            font-size: 1rem; 
+            color: var(--accent-gold); 
+        }
+
+        .rec-item p { 
+            font-size: 0.95rem; 
+            font-weight: 300; 
+            color: var(--text-ivory); 
+            opacity: 0.9;
+        }
+
+        /* --- AUDIO --- */
+        #music-btn {
+            position: fixed; 
+            bottom: 40px; 
+            right: 40px; 
+            width: 70px; 
+            height: 70px;
+            border-radius: 50%; 
+            z-index: 5000; 
+            border: 1px solid var(--accent-gold);
+            background: rgba(0, 0, 0, 0.7); 
+            cursor: pointer;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.5rem;
+            transition: var(--transition-smooth); 
+            color: var(--text-ivory);
+            backdrop-filter: blur(8px);
+        }
+
+        #music-btn:hover { 
+            background: var(--accent-gold);
+            color: var(--bg-black);
+        }
+
+        footer { 
+            padding: 120px 20px; 
+            text-align: center; 
+            border-top: 1px solid rgba(254, 255, 227, 0.1); 
+        }
+
+        @media (max-width: 768px) {
+            .date-display { 
+                gap: 20px; 
+                padding: 25px 40px; 
+            }
+            .timeline-row span:first-child { min-width: 100px; font-size: 1rem; }
+            .timeline-row span:last-child { font-size: 1rem; }
+            .menu-block { padding: 40px 20px; }
+            .rec-item { padding: 40px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="gradAudio" loop preload="auto" playsinline>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn" onclick="gestionarMusica()">🔇</button>
+
+    <header>
+        <div class="reveal-node">
+            <h1>ARGOS</h1>
+            <hr>
+            <p>GENERACIÓN 2026</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro-block reveal-node">
+            "Bajo la magia de una noche que quedará grabada en nuestra memoria, celebramos el cierre de un ciclo de esfuerzo y el comienzo de una nueva historia."
+        </div>
+
+        <div class="date-display reveal-node">
+            <span>13</span> <span>06</span> <span>26</span>
+        </div>
+
+        <div class="location-box reveal-node">
+            <h3>RECEPCIÓN</h3>
+            <p>Jardín San Hipólito<br>Estado de México</p>
+            <a href="https://www.google.com/maps?client=safari&hs=Xmyp&sca_esv=40359f8c13b0d589&rls=en&output=search&q=jardin+san+hipolito&source=lnms&fbs=ADc_l-bdYGX1Oks75MGiL1_LSZwuJznQ5ENOJVyS0xzju69RzikKRfYuqqv8lbMkLOoi_BFVxHfBva4linA5xsilnEWc8eYU36qp_m8TFcqfiVWbY2VafofY6OdkuA_lXqCouUj7XXO_igAOih1-yO9b0cgaBTGbySjL04OWe_todB2Og6J6OOZjXRZA2pDZkH82vFSLzpWkWkHckPt_n4XfaQw23w9e0Q&entry=mc&ved=1t:200715&ictx=111" target="_blank" class="btn-gold">Ver Ubicación</a>
+        </div>
+
+        <article class="timeline-container reveal-node">
+            <h3>Itinerario</h3>
+            <div class="timeline-row"><span>08:00 PM</span><span>RECEPCIÓN / CÓCTEL / SAX</span></div>
+            <div class="timeline-row"><span>09:00 PM</span><span>CENA / VIOLÍN</span></div>
+            <div class="timeline-row"><span>10:05 PM</span><span>PALABRAS</span></div>
+            <div class="timeline-row"><span>10:20 PM</span><span>VIDEO</span></div>
+            <div class="timeline-row"><span>10:25 PM</span><span>BRINDIS (RIBS - LORDE)</span></div>
+            <div class="timeline-row"><span>10:30 PM</span><span>SE ABRE PISTA (SHUT UP AND DANCE)</span></div>
+            <div class="timeline-row"><span>10:30 PM</span><span>CABINA CLÁSICA</span></div>
+            <div class="timeline-row"><span>11:00 PM</span><span>CARRITO DE SHOTS</span></div>
+            <div class="timeline-row"><span>01:00 AM</span><span>TORNAFIESTA (CHILAQUILES)</span></div>
+            <div class="timeline-row"><span>02:00 AM</span><span>FIN</span></div>
+            <div class="timeline-row"><span>02:00 AM</span><span>DESALOJO</span></div>
+        </article>
+
+        <article class="menu-section reveal-node">
+            <h3>Menú</h3>
+
+            <div class="menu-block">
+                <h4>Menú Principal</h4>
+                
+                <div class="menu-course">
+                    <strong>PRIMER TIEMPO</strong>
+                    <p>Ensalada de Modena</p>
+                </div>
+                
+                <div class="menu-course">
+                    <strong>SEGUNDO TIEMPO</strong>
+                    <p>Crema de papa y poro con tocino</p>
+                </div>
+                
+                <div class="menu-course">
+                    <strong>PLATO FUERTE</strong>
+                    <p>Magrette de pollo en salsa de vino blanco y limón, papas cambray y vegetales</p>
+                </div>
+                
+                <div class="menu-course">
+                    <strong>POSTRE</strong>
+                    <p>Mousse de tequila y limón con bizcocho de vainilla<br>Pastel de chocolate con betún de chocolate blanco y nuez</p>
+                </div>
+            </div>
+
+            <div class="menu-block">
+                <h4>Menú Vegano y Vegetariano</h4>
+                <ul class="menu-list">
+                    <li>Portobellos asados en salsa de vino blanco y limón, papas cambray y vegetales</li>
+                </ul>
+            </div>
+
+            <div class="menu-block">
+                <h4>Menú Infantil</h4>
+                <ul class="menu-list">
+                    <li>Coctel de frutas</li>
+                    <li>Pasta pomodoro con tiritas de milanesa de pollo</li>
+                    <li>Brownie con helado de vainilla</li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <aside class="recs-grid reveal-node">
+        <div class="rec-item">
+            <strong>CLIMA Y PROTECCIÓN</strong>
+            <p>Le sugerimos encarecidamente tomar precauciones e ir abrigados ante el clima del lugar.</p>
+        </div>
+        <div class="rec-item">
+            <strong>ACCESO ÚNICO</strong>
+            <p>Considere que el recinto cuenta con un solo acceso habilitado para la entrada.</p>
+        </div>
+        <div class="rec-item">
+            <strong>VALET PARKING</strong>
+            <p>Servicio externo a HC, con costo adicional por auto.</p>
+        </div>
+        <div class="rec-item">
+            <strong>ÁREAS DE FUMAR</strong>
+            <p>Recordamos que el consumo de tabaco está restringido exclusivamente a las áreas exteriores.</p>
+        </div>
+        <div class="rec-item">
+            <strong>MENÚS ESPECIALES</strong>
+            <p>Si requiere menú vegano, vegetariano o por alergias, solicítelo directamente con el comité organizador en la selección de mesas.</p>
+        </div>
+        <div class="rec-item">
+            <strong>KIT Y GUARDARROPA</strong>
+            <p>No hay servicio de guardarropa. El kit de graduado será entregado en la entrada.</p>
+        </div>
+    </aside>
+
+    <footer>
+        <h2 class="reveal-node">ARGOS</h2>
+        <p class="reveal-node">GRADUACIÓN 2026</p>
+    </footer>
+
+    <script>
+        const audio = document.getElementById('gradAudio');
+        const btn = document.getElementById('music-btn');
+
+        function gestionarMusica() {
+            if (audio.paused) {
+                let playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        btn.innerHTML = "🔊";
+                    }).catch(error => {
+                        console.log("Interacción de audio bloqueada por el navegador");
+                    });
+                }
+            } else {
+                audio.pause();
+                btn.innerHTML = "🔇";
+            }
+        }
+
+        ['click', 'touchstart'].forEach(evt => {
+            document.body.addEventListener(evt, () => {
+                if (audio.paused) {
+                    audio.play().then(() => {
+                        btn.innerHTML = "🔊";
+                    }).catch(err => console.log("Audio en espera..."));
+                }
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>
