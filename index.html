@@ -142,26 +142,41 @@
             font-weight: 300;
         }
 
-        /* --- UBICACIÓN --- */
-        .location-box {
-            max-width: 850px;
+        /* --- UBICACIONES (MISA Y RECEPCIÓN) --- */
+        .locations-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1000px;
             margin: 0 auto 130px;
+        }
+
+        .location-box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+        }
+
+        .location-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
         .location-box p { 
             font-size: 1.2rem; 
-            margin-bottom: 45px; 
+            margin-bottom: 40px; 
             font-weight: 300;
         }
 
         .btn-gold {
             display: inline-block;
-            padding: 22px 70px;
+            padding: 20px 50px;
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold); 
             background: transparent; 
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             transition: var(--transition-smooth);
@@ -346,6 +361,10 @@
                 gap: 20px; 
                 padding: 25px 40px; 
             }
+            .locations-wrapper {
+                gap: 50px;
+                margin-bottom: 90px;
+            }
             .timeline-row span:first-child { min-width: 100px; font-size: 1rem; }
             .timeline-row span:last-child { font-size: 1rem; }
             .menu-block { padding: 40px 20px; }
@@ -370,17 +389,25 @@
 
     <main>
         <div class="intro-block reveal-node">
-            "Bajo la magia de una noche que quedará grabada en nuestra memoria, celebramos el cierre de un ciclo de esfuerzo y el comienzo de una nueva historia."
+            "Bajo el encanto de una velada inolvidable, conmemoramos el fruto de nuestra dedicación y brindamos por el inicio de una historia extraordinaria."
         </div>
 
         <div class="date-display reveal-node">
             <span>13</span> <span>06</span> <span>26</span>
         </div>
 
-        <div class="location-box reveal-node">
-            <h3>RECEPCIÓN</h3>
-            <p>Jardín San Hipólito<br>Estado de México</p>
-            <a href="https://www.google.com/maps?client=safari&hs=Xmyp&sca_esv=40359f8c13b0d589&rls=en&output=search&q=jardin+san+hipolito&source=lnms&fbs=ADc_l-bdYGX1Oks75MGiL1_LSZwuJznQ5ENOJVyS0xzju69RzikKRfYuqqv8lbMkLOoi_BFVxHfBva4linA5xsilnEWc8eYU36qp_m8TFcqfiVWbY2VafofY6OdkuA_lXqCouUj7XXO_igAOih1-yO9b0cgaBTGbySjL04OWe_todB2Og6J6OOZjXRZA2pDZkH82vFSLzpWkWkHckPt_n4XfaQw23w9e0Q&entry=mc&ved=1t:200715&ictx=111" target="_blank" class="btn-gold">Ver Ubicación</a>
+        <div class="locations-wrapper reveal-node">
+            <div class="location-box">
+                <h3>CEREMONIA RELIGIOSA</h3>
+                <p>Catedral de Toluca<br>Sábado 13 de Junio | 02:00 PM</p>
+                <a href="https://www.google.com/maps/place/Catedral+de+Toluca+(San+José)/@19.2918265,-99.6598265,17z/data=!3m1!4b1!4m6!3m5!1s0x85cd89c1cd25d0df:0xd53533c114c4842b!8m2!3d19.2918265!4d-99.6572516!16s%2Fm%2F011l70n1?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-gold">Ver Ubicación</a>
+            </div>
+
+            <div class="location-box">
+                <h3>RECEPCIÓN</h3>
+                <p>Jardín San Hipólito<br>Estado de México</p>
+                <a href="https://www.google.com/maps?client=safari&hs=Xmyp&sca_esv=40359f8c13b0d589&rls=en&output=search&q=jardin+san+hipolito&source=lnms&fbs=ADc_l-bdYGX1Oks75MGiL1_LSZwuJznQ5ENOJVyS0xzju69RzikKRfYuqqv8lbMkLOoi_BFVxHfBva4linA5xsilnEWc8eYU36qp_m8TFcqfiVWbY2VafofY6OdkuA_lXqCouUj7XXO_igAOih1-yO9b0cgaBTGbySjL04OWe_todB2Og6J6OOZjXRZA2pDZkH82vFSLzpWkWkHckPt_n4XfaQw23w9e0Q&entry=mc&ved=1t:200715&ictx=111" target="_blank" class="btn-gold">Ver Ubicación</a>
+            </div>
         </div>
 
         <article class="timeline-container reveal-node">
@@ -388,13 +415,14 @@
             <div class="timeline-row"><span>08:00 PM</span><span>RECEPCIÓN / CÓCTEL / SAX</span></div>
             <div class="timeline-row"><span>09:00 PM</span><span>CENA / VIOLÍN</span></div>
             <div class="timeline-row"><span>10:05 PM</span><span>PALABRAS</span></div>
-            <div class="timeline-row"><span>10:25 PM</span><span>BRINDIS</span></div>
-            <div class="timeline-row"><span>10:30 PM</span><span>SE ABRE PISTA</span></div>
+            <div class="timeline-row"><span>10:20 PM</span><span>VIDEO</span></div>
+            <div class="timeline-row"><span>10:25 PM</span><span>BRINDIS (RIBS - LORDE)</span></div>
+            <div class="timeline-row"><span>10:30 PM</span><span>SE ABRE PISTA (SHUT UP AND DANCE)</span></div>
             <div class="timeline-row"><span>10:30 PM</span><span>CABINA CLÁSICA</span></div>
             <div class="timeline-row"><span>11:00 PM</span><span>CARRITO DE SHOTS</span></div>
             <div class="timeline-row"><span>01:00 AM</span><span>TORNAFIESTA (CHILAQUILES)</span></div>
             <div class="timeline-row"><span>02:00 AM</span><span>FIN</span></div>
-            <div class="timeline-row"><span>02:00 AM</span><span>DESALOJO</span></div>
+            <div class="timeline-row"><span>02:00 AM</span><span>DESALOJO (02:00 AM - 02:30 AM)</span></div>
         </article>
 
         <article class="menu-section reveal-node">
